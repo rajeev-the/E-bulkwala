@@ -40,7 +40,7 @@ const Home = () => {
     <section  className=' p-10'>
           <div>
           <h3 className='text-start   font-bold  text-2xl'>Electronic Accessories</h3>
-          <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-6 mt-5 place-items-center">
+          <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-10 mt-5 place-items-center">
       <PromoCard
         image={necband}
         title="AUDIO"
