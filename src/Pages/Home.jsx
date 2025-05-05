@@ -19,27 +19,19 @@ const Home = () => {
     {/* Section 1 */}
 
 
-    <section  className=' p-10'>
-          <div>
-          <h3 className='text-start   font-bold  text-2xl'>Featured Products</h3>
-          <div className='  flex items-center  justify-center  gap-[50px] mt-5'>
-            <MainBox image={img1} title={'Audio Products'} />
-            <MainBox image={img2} title={'Gaming Products'} />
-            <MainBox image={img3} title={'Watch Products'} />
-            <MainBox image={img4} title={'Cover Products'} />
+    <section className="p-10">
+  <div>
+    <h3 className="text-start font-bold text-2xl">Featured Products</h3>
 
-          </div>
-          
-        <div>
+    <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-6 mt-5 place-items-center">
+      <MainBox image={img1} title={'Audio Products'} />
+      <MainBox image={img2} title={'Gaming Products'} />
+      <MainBox image={img3} title={'Watch Products'} />
+      <MainBox image={img4} title={'Cover Products'} />
+    </div>
+  </div>
+</section>
 
-
-        </div>
-
-
-
-          </div>
-
-    </section>
 
 
     {/* Section 2 */}
