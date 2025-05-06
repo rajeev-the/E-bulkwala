@@ -34,7 +34,7 @@ const Home = () => {
   <div>
     <h3 className="text-start font-bold text-2xl">Featured Products</h3>
 
-    <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-6 mt-5 place-items-center">
+    <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-10 mt-5 place-items-center">
       <MainBox image={img1} title={'Audio Products'} />
       <MainBox image={img2} title={'Gaming Products'} />
       <MainBox image={img3} title={'Watch Products'} />
@@ -51,7 +51,7 @@ const Home = () => {
   <section  className=' p-10'>
           <div>
           <h3 className='text-start   font-bold  text-2xl'>Electronic Accessories</h3>
-          <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-10 mt-5 place-items-center">
+          <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-20 mt-5 place-items-center">
       <PromoCard
         image={necband}
         title="AUDIO"
@@ -131,7 +131,7 @@ const Home = () => {
   <div>
     <h3 className="text-start font-bold text-2xl">Trending Products</h3>
 
-    <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-10 mt-5 place-items-center">
+    <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-20 mt-5 place-items-center">
     
         <TrendingBox  img={Earphone} />
         <TrendingBox  img={pendrive} />
