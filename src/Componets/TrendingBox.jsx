@@ -1,8 +1,10 @@
 import React from 'react'
 import pendrive from '../assets/pendrive.png'
+import { Link } from 'react-router-dom'
 
 const TrendingBox = ({img}) => {
   return (
+  <Link to='/products'>
     <div className="relative w-[180px] sm:w-[320px] md:w-[368px] h-[260px] sm:h-[290px] md:h-[321px] bg-[#112430] rounded-[10px] p-4 flex flex-col items-center justify-between">
     {/* Earbuds Image */}
     <img
@@ -16,6 +18,7 @@ const TrendingBox = ({img}) => {
       Add To Cart
     </button>
   </div>
+  </Link>
   )
 }
 

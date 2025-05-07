@@ -1,6 +1,7 @@
 import React,{useState} from 'react'
 import { RiSearch2Line } from "react-icons/ri";
 import { MdOutlineKeyboardVoice } from "react-icons/md";
+import { Link } from 'react-router-dom';
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -90,7 +91,7 @@ const Navbar = () => {
       {/* Navigation Links */}
       <div className={`bg-[#C9E0EF] w-full ${menuOpen ? 'block' : 'hidden'} md:block`}>
         <ul className="flex flex-col md:flex-row md:space-x-[80px] text-sm font-semibold py-4 px-5 md:pl-[80px]">
-          <li className="py-1 md:py-0">Home</li>
+          <Link to={'/'} className="py-1 md:py-0">Home</Link>
           <li className="py-1 md:py-0">Products</li>
           <li className="py-1 md:py-0">About Us</li>
           <li className="py-1 md:py-0">Contact Us</li>
