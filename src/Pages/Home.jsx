@@ -107,10 +107,12 @@ const Home = () => {
   {/* Section 3 */}
  <section className="p-10">
   <div>
-    <h3 className="text-start font-bold text-2xl">Top Products By Category</h3>
+    <h3 className="text-start font-bold text-2xl">Top Products</h3>
 
     <div className="mt-5 overflow-x-auto  scrollbar-none [&::-webkit-scrollbar]:hidden">
       <div className="flex gap-4 w-max">
+        <ProductCard />
+        <ProductCard />
         <ProductCard />
         <ProductCard />
         <ProductCard />

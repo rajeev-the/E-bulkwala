@@ -32,9 +32,9 @@ const Navbar = () => {
         {/* Right Icons */}
         <div className="flex items-center space-x-4 mt-4 md:mt-0">
           {/* Cart */}
-          <div className="flex items-center space-x-2">
+          <Link    to={'/cart'}  className="flex items-center space-x-2">
       
-
+    
           <svg className="w-6 h-6 text-gray-600 " fill="none" stroke="currentColor" viewBox="0 0 24 24">
   <path
     strokeLinecap="round"
@@ -47,8 +47,8 @@ const Navbar = () => {
 
 
           
-            <span className="text-sm font-semibold hidden md:block">Cart</span>
-          </div>
+      <span className="text-sm font-semibold hidden md:block">Cart</span> 
+          </Link>
 
           {/* Account */}
           <div className="flex items-center space-x-2">
@@ -93,7 +93,7 @@ const Navbar = () => {
         <ul className="flex flex-col md:flex-row md:space-x-[80px] text-sm font-semibold py-4 px-5 md:pl-[80px]">
           <Link to={'/'} className="py-1 md:py-0">Home</Link>
           <li className="py-1 md:py-0">Products</li>
-          <li className="py-1 md:py-0">About Us</li>
+          <Link to={'/order'} className="py-1 md:py-0">Orders</Link>
           <li className="py-1 md:py-0">Contact Us</li>
         </ul>
       </div>

@@ -8,7 +8,7 @@ const Product = () => {
   return (
    <>
 
-<div className="w-full max-w-[1240px] mx-auto bg-white rounded-[15px] p-2 md:p-6 flex flex-col lg:flex-row justify-between items-start shadow-lg  relative">
+<div className="w-full max-w-[1240px] mx-auto bg-white  p-2 md:p-6 flex flex-col lg:flex-row justify-between items-start   relative">
   {/* Left Side - Image Carousel */}
   <div className="bg-[#112430] w-full lg:w-[402px] h-[400px] lg:h-[576px] rounded-[10px] flex flex-col items-center justify-center relative mb-6 lg:mb-0">
     <img
@@ -16,33 +16,36 @@ const Product = () => {
       alt="Smartwatch"
       className="w-[80%] h-[80%] object-contain"
     />
+    
     <div className="absolute bottom-5 flex gap-2">
-      <div className="w-4 h-3 rounded bg-[#112430]" />
+   
       <div className="w-4 h-3 rounded bg-black" />
       <div className="w-4 h-3 rounded bg-black" />
     </div>
+
+
   </div>
 
   {/* Right Side - Product Info */}
   <div className="w-full lg:w-[650px] px-2 md:px-6">
-    <h2 className="text-[24px] md:text-[40px] font-bold  text-black leading-none mb-4 md:mb-5">
-      Noise{" "}
+   
+   
       <span className="font-normal text-[14px] md:text-[18px] block mt-1">
-        Icon 2 1.8'' Display with Bluetooth Calling, Women's Edition, AI Voice Assistant Smartwatch (Pink Strap, Regular)
+          Noise{" "} Icon 2 1.8'' Display with Bluetooth Calling, Women's Edition, AI Voice Assistant Smartwatch (Pink Strap, Regular)
       </span>
-    </h2>
+
 
     <div className="flex flex-col md:flex-row justify-start items-start md:gap-[100px] lg:gap-[150px]">
       <div>
-        <p className="text-[40px] md:text-[64px] font-['ABeeZee']">$8</p>
-        <div className="flex items-center space-x-1 mt-2 mb-4 md:mb-6">
+        <p className="text-[60px] md:text-[60px] font-['ABeeZee'] ">$8</p>
+        <div className="flex items-center space-x-1 mt-1 mb-4 md:mb-6">
           {[...Array(3)].map((_, i) => (
             <FaStar key={i} className="text-[#FDC305] text-xl" />
           ))}
         </div>
       </div>
 
-      <div className="flex items-center gap-4 mt-4 md:mt-8">
+      <div className="flex items-center gap-4 mt-1 md:mt-8">
         <button
           onClick={() => setQuantity((q) => Math.max(q - 1, 1))}
           className="text-[24px] md:text-[28px] text-black"
@@ -73,9 +76,11 @@ const Product = () => {
 
     {/* Product Details */}
     <div className="mb-6">
-      <h3 className="text-[24px] md:text-[32px] font-bold font-['Reddit Mono'] mb-2">Product Details</h3>
-      <p className="text-[16px] md:text-[20px]  leading-[24px]">
+      <h3 className="text-[15px] md:text-[25px] font-bold font-['Reddit Mono'] mb-2">Product Details:</h3>
+      <p className="text-[12px] md:text-[18px]  leading-[24px]">
         material : aluminum <br />
+        Quality : premium <br />
+        Manufacture : India  <br />
         Quality : premium <br />
         Manufacture : India
       </p>

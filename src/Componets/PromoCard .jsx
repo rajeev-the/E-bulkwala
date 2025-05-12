@@ -1,9 +1,10 @@
 import React from "react";
 import { FaPlay } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 const PromoCard = ({ image, title, subtitle, buttonText }) => {
   return (
-    <div className="relative w-[180px] sm:w-[320px] md:w-[368px] h-[260px] sm:h-[290px] md:h-[321px] bg-[#112430] rounded-[15px] overflow-hidden p-4 sm:p-5 md:p-6">
+    <Link to={'/products-list'} className="relative w-[180px] sm:w-[320px] md:w-[368px] h-[260px] sm:h-[290px] md:h-[321px] bg-[#112430] rounded-[15px] overflow-hidden p-4 sm:p-5 md:p-6">
     {/* Title */}
     <h2 className="text-white font-mono font-extrabold text-[24px] sm:text-[28px] md:text-[32px] flex flex-col leading-[32px] sm:leading-[38px] md:leading-[42px]">
       {title}&nbsp;<span>ACCESSORIES</span>
@@ -31,7 +32,7 @@ const PromoCard = ({ image, title, subtitle, buttonText }) => {
       alt={title}
       className="absolute right-0 bottom-0 w-[90px] sm:w-[180px] md:w-[220px] object-contain"
     />
-  </div>
+  </Link>
   );
 };
 
