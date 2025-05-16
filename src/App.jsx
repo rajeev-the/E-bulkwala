@@ -10,7 +10,7 @@ import ScrollToTop from './Componets/ScrollToTop';
 import {ToastContainer} from 'react-toastify'
 import { Bounce } from 'react-toastify';
 import Order from './Pages/Order';
-
+import ProductPage from './Pages/ProductPage';
 
 
 const App = () => {
@@ -36,7 +36,8 @@ transition={Bounce}
   <Routes>
     <Route path='/' element={<Layout />}>
       <Route index element={<Home />} /> {/* Default route for '/' */}
-      <Route path='products' element={<Product />} />
+      <Route path='product' element={<Product />} />
+         <Route path='products' element={<ProductPage />} />
       <Route path='cart' element={<Cart />} />
       <Route path='products-list' element={<ProductsList />} />
         <Route path='order' element={<Order />} />

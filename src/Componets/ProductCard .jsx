@@ -4,7 +4,7 @@ import coverphone from '../assets/image.png'; // Import your image here
 
 const ProductCard = () => {
   return (
-    <div className="  flex flex-col w-[193.33px] h-[225px]">
+    <div className="  flex flex-col w-[193.33px] h-[225px] ">
       {/* Rectangle background */}
       <div className="  w-[193.33px] h-[194.33px] bg-[#F0F0F0] rounded-[6px] flex justify-center items-center">
         <img

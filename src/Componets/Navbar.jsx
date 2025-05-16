@@ -92,7 +92,7 @@ const Navbar = () => {
       <div className={`bg-[#C9E0EF] w-full ${menuOpen ? 'block' : 'hidden'} md:block`}>
         <ul className="flex flex-col md:flex-row md:space-x-[80px] text-sm font-semibold py-4 px-5 md:pl-[80px]">
           <Link to={'/'} className="py-1 md:py-0">Home</Link>
-          <li className="py-1 md:py-0">Products</li>
+          <Link to={'/products'} className="py-1 md:py-0">Products</Link>
           <Link to={'/order'} className="py-1 md:py-0">Orders</Link>
           <li className="py-1 md:py-0">Contact Us</li>
         </ul>
