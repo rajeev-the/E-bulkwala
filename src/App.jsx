@@ -11,6 +11,9 @@ import {ToastContainer} from 'react-toastify'
 import { Bounce } from 'react-toastify';
 import Order from './Pages/Order';
 import ProductPage from './Pages/ProductPage';
+import Admin from './Admin_panel/Admin';
+import Update from  './Admin_panel/Update'
+import OrderAdmin from './Admin_panel/Order';
 
 
 const App = () => {
@@ -41,6 +44,14 @@ transition={Bounce}
       <Route path='cart' element={<Cart />} />
       <Route path='products-list' element={<ProductsList />} />
         <Route path='order' element={<Order />} />
+    </Route>
+
+
+    <Route path='/admin'>
+     <Route index element={<Admin/>} />
+     <Route index path='update' element={<Update/>} />
+          <Route index path='order' element={<OrderAdmin/>} />
+
     </Route>
   </Routes>
 </>
