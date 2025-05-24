@@ -25,6 +25,20 @@ import PromotionalBanner from '../Componets/PromotionalBanner '
 
 
 const Home = () => {
+  const categories = [
+  { title: 'Grocery' },
+  { title: 'Fashion' },
+  { title: 'Food & Health' },
+  { title: 'Beauty' },
+  { title: 'Electronics' },
+  { title: '2 Wheelers' },
+  { title: 'Scan & Pay' },
+  { title: 'Mobiles' },
+  { title: 'Home' },
+  { title: 'Gadgets' },
+  { title: 'Appliances' },
+  { title: 'GenZ' },
+];
   return (
     <>
     {/* Section 1 */}
@@ -34,13 +48,22 @@ const Home = () => {
   <div>
     <h3 className="text-start font-bold text-2xl">Featured Products</h3>
 
-    <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-10 mt-5 place-items-center">
-      <MainBox image={img1} title={'Audio Products'} />
-      <MainBox image={img2} title={'Gaming Products'} />
-      <MainBox image={img3} title={'Watch Products'} />
-      <MainBox image={img4} title={'Cover Products'} />
+      <div className="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
+        {categories.map((category, index) => (
+          <div
+            key={index}
+            className="flex flex-col items-center justify-center bg-white rounded-xl shadow-md p-3 hover:shadow-lg transition-shadow duration-200"
+          >
+            {/* Placeholder for image */}
+            <div className="w-20 h-20 bg-gradient-to-br from-blue-100 to-blue-300 rounded-xl flex items-center justify-center mb-2">
+              <span className="text-sm text-gray-500">Image</span>
+            </div>
+            <span className="text-sm font-medium text-center">{category.title}</span>
+          </div>
+        ))}
+      </div>
     </div>
-  </div>
+
 </section>
 
 

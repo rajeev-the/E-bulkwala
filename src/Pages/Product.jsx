@@ -2,6 +2,7 @@ import React,{useState} from 'react'
 import { FaStar, FaShoppingBag, FaHeart, FaMinus, FaPlus } from 'react-icons/fa';
 import { FaWhatsapp } from 'react-icons/fa';
 import watchphoto from '../assets/watchphoto.png'
+import PricingTiers from '../Componets/PricingTiers';
 
 const Product = () => {
     const [quantity, setQuantity] = useState(5);
@@ -35,7 +36,7 @@ const Product = () => {
       </span>
 
 
-    <div className="flex flex-col md:flex-row justify-start items-start md:gap-[100px] lg:gap-[150px]">
+    <div className="flex flex-col md:flex-col justify-start items-start  ">
       <div>
         <p className="text-[60px] md:text-[60px] font-['ABeeZee'] ">$8</p>
         <div className="flex items-center space-x-1 mt-1 mb-4 md:mb-6">
@@ -45,23 +46,9 @@ const Product = () => {
         </div>
       </div>
 
-      <div className="flex items-center gap-4 mt-1 md:mt-8">
-        <button
-          onClick={() => setQuantity((q) => Math.max(q - 1, 1))}
-          className="text-[24px] md:text-[28px] text-black"
-        >
-          <FaMinus />
-        </button>
-        <span className="bg-black text-white px-3 py-1 rounded text-[24px] md:text-[32px] font-bold">
-          {quantity}
-        </span>
-        <button
-          onClick={() => setQuantity((q) => q + 1)}
-          className="text-[24px] md:text-[28px] text-black"
-        >
-          <FaPlus />
-        </button>
-      </div>
+   
+       <PricingTiers/>
+   
     </div>
 
     {/* Buttons */}

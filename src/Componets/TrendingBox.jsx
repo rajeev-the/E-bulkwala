@@ -2,13 +2,23 @@ import React from 'react'
 import pendrive from '../assets/pendrive.png'
 import { Bounce } from 'react-toastify'
 import { toast } from 'react-toastify'
-import { Link } from 'react-router-dom'
+import { Link ,useNavigate } from 'react-router-dom'
 
 const TrendingBox = ({img}) => {
 
-  const handleclick =()=>{
 
-toast.success('Product added to cart!', {
+  const navigate = useNavigate()
+
+  const handleclick1 =(e)=>{
+   
+    navigate('/product')
+
+  }
+
+
+  const handleclick =(e)=>{
+  e.stopPropagation();
+toast.success('Added to cart!', {
 position: "top-center",
 autoClose: 1200,
 hideProgressBar: false,
@@ -22,7 +32,7 @@ transition: Bounce,
   }
 
   return (
-  <div to='/products'>
+  <div onClick={handleclick1} className="flex flex-col items-center justify-center">
     <div className="relative w-[180px] sm:w-[320px] md:w-[368px] h-[260px] sm:h-[290px] md:h-[321px] bg-[#112430] rounded-[10px] p-4 flex flex-col items-center justify-between">
     {/* Earbuds Image */}
     <img
