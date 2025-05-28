@@ -19,25 +19,26 @@ import watchphoto from '../assets/watchphoto.png'
 import temperimg from '../assets/temperimg.png'
 import section3 from '../assets/section-3.png'
 import PromotionalBanner from '../Componets/PromotionalBanner '
-
+import mobile from '../assets/mobile.png'
+import electronics from '../assets/electronic.png'
 
 
 
 
 const Home = () => {
   const categories = [
-  { title: 'Grocery' },
-  { title: 'Fashion' },
-  { title: 'Food & Health' },
-  { title: 'Beauty' },
-  { title: 'Electronics' },
-  { title: '2 Wheelers' },
-  { title: 'Scan & Pay' },
-  { title: 'Mobiles' },
-  { title: 'Home' },
-  { title: 'Gadgets' },
-  { title: 'Appliances' },
-  { title: 'GenZ' },
+  { title: 'Mobile Accessories' ,img: mobile},
+  { title: 'Electronics', img: electronics },
+  { title: 'Home Decor',img: electronics },
+  { title: 'Toys' ,img: electronics},
+  { title: 'Beauty' ,img: electronics},
+  { title: 'Food & Health' ,img: electronics},
+  { title: 'Appliance',img: electronics },
+  { title: 'Fashion',img: electronics },
+  { title: 'Sports',img: electronics },
+  { title: 'Auto Accessories',img: electronics },
+  { title: 'Furniture',img: electronics },
+  { title: 'Groceries',img: electronics },
 ];
   return (
     <>
@@ -55,8 +56,9 @@ const Home = () => {
             className="flex flex-col items-center justify-center bg-white rounded-xl shadow-md p-3 hover:shadow-lg transition-shadow duration-200"
           >
             {/* Placeholder for image */}
-            <div className="w-20 h-20 bg-gradient-to-br from-blue-100 to-blue-300 rounded-xl flex items-center justify-center mb-2">
-              <span className="text-sm text-gray-500">Image</span>
+           
+            <div className="w-20 h-20   rounded-xl flex items-center justify-center mb-2">
+              <img src={category?.img}  className='    '  alt="" />
             </div>
             <span className="text-sm font-medium text-center">{category.title}</span>
           </div>
