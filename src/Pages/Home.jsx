@@ -1,4 +1,4 @@
-import React from 'react'
+import React,{useState} from 'react'
 import MainBox from '../Componets/MainBox'
 import img1 from '../assets/img1.jpg'
 import img2 from '../assets/img2.jpg'
@@ -21,11 +21,12 @@ import section3 from '../assets/section-3.png'
 import PromotionalBanner from '../Componets/PromotionalBanner '
 import mobile from '../assets/mobile.png'
 import electronics from '../assets/electronic.png'
-
+import HeroSection from '../Componets/HeroSection'
 
 
 
 const Home = () => {
+    const [activeIndex, setActiveIndex] = useState(0);
   const categories = [
   { title: 'Mobile Accessories' ,img: mobile},
   { title: 'Electronics', img: electronics },
@@ -45,11 +46,39 @@ const Home = () => {
     {/* Section 1 */}
 
 
-    <section className="p-10">
-  <div>
-    <h3 className="text-start font-bold text-2xl">Featured Products</h3>
+    <section className="p-5 sm:p-10">
+        <div className="">
+      <div className="flex gap-4 overflow-x-auto pb-3    scrollbar-none [&::-webkit-scrollbar]:hidden">
+        {[...Array(16)].map((_, i) => (
+          <div key={i} className="flex flex-col items-center">
+            <div
+              onClick={() => setActiveIndex(i)}
+              className={`h-24 w-24 flex-shrink-0 cursor-pointer rounded-xl border-2 bg-red-200 p-2 transition-all hover:border-red-300 ${
+                activeIndex === i ? "border-red-400" : "border-red-200"
+              }`}
+            >
+              <span className="text-sm font-medium text-red-900">
+                Category {i + 1}
+              </span>
+            </div>
 
-      <div className="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
+            {/* Bottom underline under the box */}
+            <div
+              className={`mt-1 h-1.5 w-[90%] rounded-full transition-all duration-300 ${
+                activeIndex === i ? "bg-[#C9E0EF]" : "bg-transparent"
+              }`}
+            />
+          </div>
+        ))}
+      </div>
+    </div>
+    
+  <div>
+   
+<HeroSection/>
+    
+
+      <div className="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4 mt-3">
         {categories.map((category, index) => (
           <div
             key={index}

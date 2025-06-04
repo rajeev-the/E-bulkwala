@@ -14,7 +14,7 @@ const ProductPage = () => {
           {[...Array(4)].map((_, i) => (
             <div
               key={i}
-              className="h-24 w-24 flex-shrink-0 rounded-xl border-2 border-red-200 bg-red-100 p-2 transition-all hover:border-red-300"
+              className="h-24 w-24 flex-shrink-0 rounded-xl border-2 border-red-200 bg-red-600 p-2 transition-all hover:border-red-300"
             >
               <span className="text-sm font-medium text-red-900">Category {i + 1}</span>
             </div>
