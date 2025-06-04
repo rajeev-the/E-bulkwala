@@ -1,9 +1,5 @@
 import React,{useState} from 'react'
-import MainBox from '../Componets/MainBox'
-import img1 from '../assets/img1.jpg'
-import img2 from '../assets/img2.jpg'
-import img3 from '../assets/img3.jpg'
-import img4 from '../assets/img4.jpg'
+import mainbox from '../assets/38686812_8642509.jpg'
 import necband from '../assets/necband.png'
 import PromoCard from '../Componets/PromoCard '
 import cable from '../assets/cable.png'
@@ -75,7 +71,13 @@ const Home = () => {
     
   <div>
    
-<HeroSection/>
+ 
+
+   <img src={mainbox} alt="Main Image"  className=' sm:h-[400px] w-auto   rounded-xl   md:hidden' />
+   <div className='hidden sm:block'>
+<HeroSection />
+   </div>
+
     
 
       <div className="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4 mt-3">
