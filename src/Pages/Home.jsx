@@ -1,4 +1,4 @@
-import React,{useState} from 'react'
+import React,{useState , useEffect} from 'react'
 import mainbox from '../assets/38686812_8642509.jpg'
 import necband from '../assets/necband.png'
 import PromoCard from '../Componets/PromoCard '
@@ -17,11 +17,38 @@ import section3 from '../assets/section-3.png'
 import PromotionalBanner from '../Componets/PromotionalBanner '
 import mobile from '../assets/mobile.png'
 import electronics from '../assets/electronic.png'
+import axios from 'axios'
 import HeroSection from '../Componets/HeroSection'
 
 
 
+
 const Home = () => {
+
+  const [isLoading, setIsLoading] = useState(true);
+  const [isCatogrydata, setIsCatogrydata] = useState([]);
+
+  useEffect(()=>{
+    const fetchCategoryData = async () => {
+      try {
+        const response = await axios.get('https://bulk-backend-qlo4.onrender.com/api/category/all');
+        
+        const data = response.data;
+        setIsCatogrydata(data);
+      } catch (error) {
+        console.error('Error fetching category data:', error);
+      } finally {
+        setIsLoading(false);
+      }
+    };
+
+    fetchCategoryData();
+
+
+  },[])
+
+  console.log(isCatogrydata);
+
     const [activeIndex, setActiveIndex] = useState(0);
   const categories = [
   { title: 'Mobile Accessories' ,img: mobile},
@@ -42,21 +69,28 @@ const Home = () => {
     {/* Section 1 */}
 
 
-    <section className="p-5 sm:p-10">
+    <section className="p-5 sm:px-10">
         <div className="">
       <div className="flex gap-4 overflow-x-auto pb-3    scrollbar-none [&::-webkit-scrollbar]:hidden">
-        {[...Array(16)].map((_, i) => (
+        {[...Array(13)].map((_, i) => (
           <div key={i} className="flex flex-col items-center">
-            <div
-              onClick={() => setActiveIndex(i)}
-              className={`h-24 w-24 flex-shrink-0 cursor-pointer rounded-xl border-2 bg-red-200 p-2 transition-all hover:border-red-300 ${
-                activeIndex === i ? "border-red-400" : "border-red-200"
-              }`}
-            >
-              <span className="text-sm font-medium text-red-900">
-                Category {i + 1}
-              </span>
-            </div>
+           <div
+  onClick={() => setActiveIndex(i)}
+  className={`h-30 w-30 flex-shrink-0 cursor-pointer rounded-xl     shadow-xl  border-3  border-[#C9E0EF] transition-all  `}
+>
+  <img
+    // src={`${isCatogrydata?.img_url[i]}`} // your image URL here
+    src={isCatogrydata[i]?.img_url || 'https://via.placeholder.com/150'} // Fallback image if not available
+    alt={`Category ${i + 1}`}
+    className="h-full w-full object-cover rounded-lg"
+  />
+  {/* Optional overlay text */}
+  
+</div>
+<span className=" mt-1 text-[13px] font-semibold text-[black]  bg-opacity-50 px-1 rounded">
+   {isCatogrydata[i]?.name || 'Category Name'}
+  </span>
+
 
             {/* Bottom underline under the box */}
             <div
