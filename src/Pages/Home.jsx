@@ -162,17 +162,17 @@ const Home = () => {
       <p className="text-[11px] text-gray-500 tracking-wide uppercase">
         Sample Price
       </p>
-      <p className="text-sm font-semibold text-blue-600">
+      <p className="text-[10px] font-semibold text-blue-600">
         ₹{category?.sample_price}
       </p>
     </div>
 
     {/* Bulk Price */}
-    <div className="flex items-center justify-center gap-2">
+    <div className="flex items-center justify-center gap-1 ">
       <p className="text-[11px] text-gray-500 tracking-wide uppercase">
         Bulk Price
       </p>
-      <p className="text-sm font-semibold text-emerald-600">
+      <p className="text-[10px] font-semibold text-emerald-600">
         ₹{category?.price}
       </p>
     </div>
