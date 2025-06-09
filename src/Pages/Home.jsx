@@ -173,7 +173,7 @@ const Home = () => {
         Bulk Price
       </p>
       <p className="text-sm font-semibold text-emerald-600">
-        {category?.price}
+        ₹{category?.price}
       </p>
     </div>
   </div>
