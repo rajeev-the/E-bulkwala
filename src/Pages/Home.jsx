@@ -19,6 +19,7 @@ import mobile from '../assets/mobile.png'
 import electronics from '../assets/electronic.png'
 import axios from 'axios'
 import HeroSection from '../Componets/HeroSection'
+import Loading from '../Componets/Loading'
 
 
 
@@ -73,40 +74,47 @@ const Home = () => {
 
     <section className="p-5 sm:px-10">
         <div className="">
-      <div className="flex gap-4 overflow-x-auto pb-3    scrollbar-none [&::-webkit-scrollbar]:hidden">
-        {isCatogrydata?.map((val, i) => (
-          <div key={i} className="flex flex-col items-center">
-           <div
-  onClick={() => { setActiveIndex(i)  
-     setIssubCatogry(isCatogrydata[i].subcategories)
-        
-  }
-  }
-  className={`h-30 w-30 flex-shrink-0 cursor-pointer rounded-xl     shadow-xl  border-3  border-[#C9E0EF] transition-all  `}
->
-  <img
-    // src={`${isCatogrydata?.img_url[i]}`} // your image URL here
-    src={val?.img_url || 'https://via.placeholder.com/150'} // Fallback image if not available
-    alt={`Category ${i + 1}`}
-    className="h-full w-full object-cover rounded-lg"
-  />
-  {/* Optional overlay text */}
-  
-</div>
-<span className=" mt-1 text-[13px] font-semibold text-[black]  bg-opacity-50 px-1 rounded">
-   {val?.name || 'Category Name'}
-  </span>
 
 
-            {/* Bottom underline under the box */}
-            <div
-              className={`mt-1 h-1.5 w-[90%] rounded-full transition-all duration-300 ${
-                activeIndex === i ? "bg-[#C9E0EF]" : "bg-transparent"
-              }`}
-            />
-          </div>
-        ))}
+     <div className="flex gap-4 overflow-x-auto pb-3 scrollbar-none [&::-webkit-scrollbar]:hidden">
+  {isLoading ? (
+    <div className="w-full flex justify-center items-center py-6 min-h-[100px]">
+      <Loading size={32} color="#3b82f6" />
+    </div>
+  ) : (
+    isCatogrydata?.map((val, i) => (
+      <div key={i} className="flex flex-col items-center">
+        <div
+          onClick={() => {
+            setActiveIndex(i);
+            setIssubCatogry(isCatogrydata[i].subcategories);
+          }}
+          className={`h-30 w-30 flex-shrink-0 cursor-pointer rounded-xl shadow-xl border-3 border-[#C9E0EF] transition-all`}
+        >
+          <img
+            src={val?.img_url || 'https://via.placeholder.com/150'}
+            alt={`Category ${i + 1}`}
+            className="h-full w-full object-cover rounded-lg"
+          />
+        </div>
+
+        <span className="mt-1 text-[13px] font-semibold text-black bg-opacity-50 px-1 rounded">
+          {val?.name || 'Category Name'}
+        </span>
+
+        {/* Underline indicator */}
+        <div
+          className={`mt-1 h-1.5 w-[90%] rounded-full transition-all duration-300 ${
+            activeIndex === i ? "bg-[#C9E0EF]" : "bg-transparent"
+          }`}
+        />
       </div>
+    ))
+  )}
+</div>
+
+
+
     </div>
     
   <div>
@@ -119,39 +127,54 @@ const Home = () => {
    </div>
 
     
-
-   <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6 mt-6">
-  {issubCatogry?.map((category, index) => (
-    <div
-      key={index}
-      className="group relative flex flex-col items-center justify-between bg-white border border-yellow-100 rounded-xl shadow-md p-5 transition-all duration-300 hover:shadow-lg hover:-translate-y-1"
-    >
-      {/* Decorative gradient overlay on hover */}
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent to-yellow-50 opacity-0 group-hover:opacity-100 rounded-xl transition-opacity duration-300 pointer-events-none"></div>
-
-      {/* Image */}
-      <div className="w-24 h-24 rounded-full bg-yellow-50 border-2 border-yellow-200 flex items-center justify-center mb-4 shadow-sm">
-        <img src={category?.img_url} alt={category?.name} className="w-16 h-16 object-contain" />
-      </div>
-
-      {/* Title */}
-      <h3 className="text-center font-serif text-base font-semibold text-gray-800 mb-1">{category.name}</h3>
-
-      {/* Price Range */}
-      <div className="text-center mb-2">
-        <p className="text-[11px] text-gray-400 tracking-wide uppercase">Price Range</p>
-        <p className="text-sm font-medium text-emerald-600">₹{category?.price}</p>
-      </div>
-
-      {/* Sample Price */}
-      <div className="text-center">
-        <p className="text-[11px] text-gray-400 tracking-wide uppercase">Sample Price</p>
-        <p className="text-sm font-medium text-blue-600">₹{category?.sample_price}</p>
-      </div>
-
-    
+<div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6 mt-6">
+  {isLoading ? (
+    <div className="col-span-2 sm:col-span-3 md:col-span-4 lg:col-span-6 flex justify-center items-center py-16">
+      <Loading size={36} color="#3b82f6" />
     </div>
-  ))}
+  ) : (
+    issubCatogry?.map((category, index) => (
+      <div
+        key={index}
+        className="group relative flex flex-col items-center justify-between bg-white border border-yellow-100 rounded-xl shadow-md p-5 transition-all duration-300 hover:shadow-lg hover:-translate-y-1"
+      >
+        {/* Decorative gradient overlay on hover */}
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent to-yellow-50 opacity-0 group-hover:opacity-100 rounded-xl transition-opacity duration-300 pointer-events-none"></div>
+
+        {/* Image */}
+        <div className="w-24 h-24 rounded-full bg-yellow-50 border-2 border-yellow-200 flex items-center justify-center mb-4 shadow-sm">
+          <img
+            src={category?.img_url}
+            alt={category?.name}
+            className="w-16 h-16 object-contain"
+          />
+        </div>
+
+        {/* Title */}
+        <h3 className="text-center font-serif text-base font-semibold text-gray-800 mb-1">
+          {category.name}
+        </h3>
+
+        {/* Price Range */}
+        <div className="text-center mb-2">
+          <p className="text-[11px] text-gray-400 tracking-wide uppercase">
+            Price Range
+          </p>
+          <p className="text-sm font-medium text-emerald-600">₹{category?.price}</p>
+        </div>
+
+        {/* Sample Price */}
+        <div className="text-center">
+          <p className="text-[11px] text-gray-400 tracking-wide uppercase">
+            Sample Price
+          </p>
+          <p className="text-sm font-medium text-blue-600">
+            ₹{category?.sample_price}
+          </p>
+        </div>
+      </div>
+    ))
+  )}
 </div>
 
 
