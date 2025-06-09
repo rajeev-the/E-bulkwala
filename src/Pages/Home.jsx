@@ -134,45 +134,51 @@ const Home = () => {
     </div>
   ) : (
     issubCatogry?.map((category, index) => (
-      <div
-        key={index}
-        className="group relative flex flex-col items-center justify-between bg-white border border-yellow-100 rounded-xl shadow-md p-5 transition-all duration-300 hover:shadow-lg hover:-translate-y-1"
-      >
-        {/* Decorative gradient overlay on hover */}
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent to-yellow-50 opacity-0 group-hover:opacity-100 rounded-xl transition-opacity duration-300 pointer-events-none"></div>
+    <div
+  key={index}
+  className="group relative flex flex-col items-center justify-between bg-white border border-yellow-100 rounded-2xl shadow-lg p-6 transition-transform duration-300 hover:shadow-xl hover:-translate-y-1"
+>
+  {/* Gradient Overlay */}
+  <div className="absolute inset-0 bg-gradient-to-b from-transparent to-yellow-100 opacity-0 group-hover:opacity-40 rounded-2xl transition-opacity duration-300 pointer-events-none"></div>
 
-        {/* Image */}
-        <div className="w-24 h-24 rounded-full bg-yellow-50 border-2 border-yellow-200 flex items-center justify-center mb-4 shadow-sm">
-          <img
-            src={category?.img_url}
-            alt={category?.name}
-            className="w-16 h-16 object-contain"
-          />
-        </div>
+  {/* Image */}
+  <div className="w-32 h-32 rounded-full bg-yellow-50 border border-yellow-200 flex items-center justify-center mb-5 shadow-md overflow-hidden">
+    <img
+      src={category?.img_url}
+      alt={category?.name}
+      className="w-28 h-28 object-contain transition-transform duration-300 group-hover:scale-105"
+    />
+  </div>
 
-        {/* Title */}
-        <h3 className="text-center font-serif text-base font-semibold text-gray-800 mb-1">
-          {category.name}
-        </h3>
+  {/* Category Title */}
+  <h3 className="text-center font-serif text-lg font-semibold text-gray-800 mb-2">
+    {category?.name}
+  </h3>
 
-        {/* Price Range */}
-        <div className="text-center mb-2">
-          <p className="text-[11px] text-gray-400 tracking-wide uppercase">
-            Price Range
-          </p>
-          <p className="text-sm font-medium text-emerald-600">₹{category?.price}</p>
-        </div>
+  {/* Price Info Section */}
+  <div className="w-full flex flex-col gap-2 text-center">
+    {/* Sample Price */}
+    <div className="flex items-center justify-center gap-2">
+      <p className="text-[11px] text-gray-500 tracking-wide uppercase">
+        Sample Price
+      </p>
+      <p className="text-sm font-semibold text-blue-600">
+        ₹{category?.sample_price}
+      </p>
+    </div>
 
-        {/* Sample Price */}
-        <div className="text-center">
-          <p className="text-[11px] text-gray-400 tracking-wide uppercase">
-            Sample Price
-          </p>
-          <p className="text-sm font-medium text-blue-600">
-            ₹{category?.sample_price}
-          </p>
-        </div>
-      </div>
+    {/* Bulk Price */}
+    <div className="flex items-center justify-center gap-2">
+      <p className="text-[11px] text-gray-500 tracking-wide uppercase">
+        Bulk Price
+      </p>
+      <p className="text-sm font-semibold text-emerald-600">
+        {category?.price}
+      </p>
+    </div>
+  </div>
+</div>
+
     ))
   )}
 </div>
