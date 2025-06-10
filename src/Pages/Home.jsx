@@ -121,7 +121,7 @@ const Home = () => {
    
  
 
-   <img src={mainbox} alt="Main Image"  className=' sm:h-[400px] w-auto   rounded-xl   md:hidden' />
+   <img src={"https://ik.imagekit.io/uo88taob9/Final%20Category%20List/Mobile%20Cover%20Banner%20.png?updatedAt=1749530599906"} alt="Main Image"  className=' sm:h-[400px] w-auto   rounded-xl   md:hidden' />
    <div className='hidden sm:block'>
 <HeroSection />
    </div>
