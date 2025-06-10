@@ -136,7 +136,7 @@ const Home = () => {
     issubCatogry?.map((category, index) => (
     <div
   key={index}
-  className="group relative flex flex-col items-center justify-between bg-white border border-yellow-100 rounded-2xl shadow-lg p-6 transition-transform duration-300 hover:shadow-xl hover:-translate-y-1"
+  className="group relative flex flex-col items-center justify-between bg-white border border-[#C9E0EF] rounded-2xl shadow-lg p-6 transition-transform duration-300 hover:shadow-xl hover:-translate-y-1"
 >
   {/* Gradient Overlay */}
   <div className="absolute inset-0 bg-gradient-to-b from-transparent to-yellow-100 opacity-0 group-hover:opacity-40 rounded-2xl transition-opacity duration-300 pointer-events-none"></div>
