@@ -20,6 +20,8 @@ import electronics from '../assets/electronic.png'
 import axios from 'axios'
 import HeroSection from '../Componets/HeroSection'
 import Loading from '../Componets/Loading'
+import Aff from '../Componets/Aff'
+import aff from "../assets/afff.png"
 
 
 
@@ -307,8 +309,19 @@ const Home = () => {
 <section className="p-2">
 
 <PromotionalBanner/>
+ {/* Section 5 */}
+
+
   
 </section>
+  {/* <section className='w=full    rounded-sm  h-auto'>
+<img src={aff} alt="sectoin-3" className='rounded-sm' />
+  </section> */}
+
+  <section className='p-2'>
+  <Aff/>
+  </section>
+
     
     
     </>
