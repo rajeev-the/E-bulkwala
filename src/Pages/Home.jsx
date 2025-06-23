@@ -22,6 +22,7 @@ import HeroSection from '../Componets/HeroSection'
 import Loading from '../Componets/Loading'
 import Aff from '../Componets/Aff'
 import aff from "../assets/afff.png"
+import affpic from '../assets/BULK_AFFILIATE_PROGRAM[2].png' 
 
 
 
@@ -38,6 +39,7 @@ const Home = () => {
         const response = await axios.get('https://bulk-backend-qlo4.onrender.com/api/category/all');
         
         const data = response.data;
+        console.log(data);
         setIsCatogrydata(data);
         setIssubCatogry(data[0].subcategories)
       } catch (error) {
@@ -318,7 +320,8 @@ const Home = () => {
 <img src={aff} alt="sectoin-3" className='rounded-sm' />
   </section> */}
 
-  <section className='p-2'>
+ <img src={affpic} alt="Main Image"  className=' sm:h-[400px] w-auto   rounded-xl   md:hidden' />
+  <section className='p-2 hidden sm:block'>
   <Aff/>
   </section>
 
