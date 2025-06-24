@@ -51,7 +51,7 @@ const Home = () => {
         const response = await axios.get('https://bulk-backend-qlo4.onrender.com/api/category/all');
         
         const data = response.data;
-        console.log(data);
+      
         setIsCatogrydata(data);
         setIssubCatogry(data[0].subcategories)
         setIsBannerData(data[0].banner);
