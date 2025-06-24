@@ -32,6 +32,18 @@ const Home = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [isCatogrydata, setIsCatogrydata] = useState([]);
   const[issubCatogry ,setIssubCatogry] = useState([])
+  const [isBannerData, setIsBannerData] = useState([]);
+  const [iscount, setIscount] = useState(0);
+
+   useEffect(() => {
+    const interval = setInterval(() => {
+      setIscount((prevIndex) =>
+       (prevIndex + 1) % isBannerData.length // Loop through the banner images
+      );
+    }, 3000); // Change image every 3 seconds
+
+    return () => clearInterval(interval); // Cleanup on unmount
+  }, [isBannerData]);
 
   useEffect(()=>{
     const fetchCategoryData = async () => {
@@ -42,6 +54,7 @@ const Home = () => {
         console.log(data);
         setIsCatogrydata(data);
         setIssubCatogry(data[0].subcategories)
+        setIsBannerData(data[0].banner);
       } catch (error) {
         console.error('Error fetching category data:', error);
       } finally {
@@ -57,20 +70,7 @@ const Home = () => {
 
 
     const [activeIndex, setActiveIndex] = useState(0);
-  const categories = [
-  { title: 'Mobile Accessories' ,img: mobile},
-  { title: 'Electronics', img: electronics },
-  { title: 'Home Decor',img: electronics },
-  { title: 'Toys' ,img: electronics},
-  { title: 'Beauty' ,img: electronics},
-  { title: 'Food & Health' ,img: electronics},
-  { title: 'Appliance',img: electronics },
-  { title: 'Fashion',img: electronics },
-  { title: 'Sports',img: electronics },
-  { title: 'Auto Accessories',img: electronics },
-  { title: 'Furniture',img: electronics },
-  { title: 'Groceries',img: electronics },
-];
+
   return (
     <>
     {/* Section 1 */}
@@ -92,6 +92,8 @@ const Home = () => {
           onClick={() => {
             setActiveIndex(i);
             setIssubCatogry(isCatogrydata[i].subcategories);
+            setIsBannerData(isCatogrydata[i].banner);
+            setIscount(0); // Reset the banner index when category changes
           }}
           className={`h-30 w-30 flex-shrink-0 cursor-pointer rounded-xl shadow-xl border-3 border-[#C9E0EF] transition-all`}
         >
@@ -125,7 +127,14 @@ const Home = () => {
    
  
 
-   <img src={"https://ik.imagekit.io/uo88taob9/Final%20Category%20List/Mobile%20Cover%20Banner%20.png?updatedAt=1749530599906"} alt="Main Image"  className=' sm:h-[400px] w-auto   rounded-xl   md:hidden' />
+ {isLoading ? (
+    <div className="w-full flex justify-center items-center py-6 min-h-[100px]">
+      <Loading size={32} color="#3b82f6" />
+    </div>
+  ) : (
+   <img src={isBannerData[iscount]} alt="Main Image"  className=' sm:h-[400px] w-auto   rounded-xl   md:hidden' />
+
+  )}
    <div className='hidden sm:block'>
 <HeroSection />
    </div>
