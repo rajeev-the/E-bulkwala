@@ -76,7 +76,7 @@ const Home = () => {
     {/* Section 1 */}
 
 
-    <section className="p-5 sm:px-10">
+    <section className="px-5  sm:p-6">
         <div className="">
 
 

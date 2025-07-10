@@ -13,7 +13,7 @@ const sampleProduct = {
 };
 
 const Order = () => {
-  const [orderStatus, setOrderStatus] = useState(false);
+  const [orderStatus, setOrderStatus] = useState(true);
 
   return (
   <div className='w-full h-full p-10'>
