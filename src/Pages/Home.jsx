@@ -147,50 +147,63 @@ const Home = () => {
     </div>
   ) : (
     issubCatogry?.map((category, index) => (
-    <div
+ <div
   key={index}
-  className="group relative flex flex-col items-center justify-between bg-white border border-[#C9E0EF] rounded-2xl shadow-lg p-6 transition-transform duration-300 hover:shadow-xl hover:-translate-y-1"
+  className="group relative flex flex-col bg-white rounded-xl p-6 transition-all duration-300 hover:shadow-xl overflow-hidden border border-gray-100"
+  style={{
+    boxShadow: "0 4px 24px rgba(0, 0, 0, 0.05)",
+  }}
 >
-  {/* Gradient Overlay */}
-  <div className="absolute inset-0 bg-gradient-to-b from-transparent to-yellow-100 opacity-0 group-hover:opacity-40 rounded-2xl transition-opacity duration-300 pointer-events-none"></div>
+  {/* Gold accent bar */}
+  <div className="absolute top-0 left-0 h-1 w-full bg-gradient-to-r from-amber-400 to-amber-600"></div>
 
-  {/* Image */}
-  <div className="w-32 h-32 rounded-full bg-yellow-50 border border-yellow-200 flex items-center justify-center mb-5 shadow-md overflow-hidden">
+  {/* Image container with classic frame */}
+  <div className="relative mx-auto mb-6 w-32 h-32 rounded-full flex items-center justify-center bg-white border-8 border-amber-50 shadow-md">
+   
     <img
       src={category?.img_url}
       alt={category?.name}
-      className="w-28 h-28 object-contain transition-transform duration-300 group-hover:scale-105"
+      className="w-32 h-32 object-contain transition-transform duration-500 group-hover:scale-110"
     />
   </div>
 
   {/* Category Title */}
-  <h3 className="text-center font-serif text-lg font-semibold text-gray-800 mb-2">
+  <h3 className="text-center font-serif text-xl font-medium text-gray-800 mb-4 tracking-tight">
     {category?.name}
   </h3>
 
-  {/* Price Info Section */}
-  <div className="w-full flex flex-col gap-2 text-center">
+  {/* Divider */}
+  <div className="relative mb-4 mx-auto w-16 h-px bg-gradient-to-r from-transparent via-gray-300 to-transparent">
+    <div className="absolute left-1/2 -translate-x-1/2 -top-1.5 w-3 h-3 rounded-full bg-amber-400 border-2 border-white"></div>
+  </div>
+
+  {/* Price Info Section - classic layout */}
+  <div className="space-y-3">
     {/* Sample Price */}
-    <div className="flex items-center justify-center gap-2">
-      <p className="text-[11px] text-gray-500 tracking-wide uppercase">
-        Sample Price
-      </p>
-      <p className="text-[10px] font-semibold text-blue-600">
+    <div className="flex justify-between items-center px-2">
+      <span className="text-xs font-medium text-gray-500 uppercase tracking-wider">Sample</span>
+      <span className="text-sm font-medium text-gray-700 bg-gray-100 px-3 py-1 rounded">
         ₹{category?.sample_price}
-      </p>
+      </span>
     </div>
 
     {/* Bulk Price */}
-    <div className="flex items-center justify-center gap-1 ">
-      <p className="text-[11px] text-gray-500 tracking-wide uppercase">
-        Bulk Price
-      </p>
-      <p className="text-[10px] font-semibold text-emerald-600">
+    <div className="flex justify-between items-center px-2">
+      <span className="text-xs font-medium text-gray-500 uppercase tracking-wider">Bulk</span>
+      <span className="text-sm font-semibold text-amber-700 bg-amber-100 px-3 py-1 rounded border border-amber-200">
         ₹{category?.price}
-      </p>
+      </span>
     </div>
   </div>
+
+  {/* Classic badge */}
+  <div className="absolute top-5 right-5 flex items-center justify-center w-6 h-6 rounded-full bg-amber-500 shadow-sm">
+    <svg xmlns="http://www.w3.org/2000/svg" className="h-3 w-3 text-white" viewBox="0 0 20 20" fill="currentColor">
+      <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+    </svg>
+  </div>
 </div>
+
 
     ))
   )}
