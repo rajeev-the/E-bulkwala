@@ -1,4 +1,4 @@
-import React,{useState , useEffect} from 'react'
+import React,{useState , useEffect, useContext} from 'react'
 import mainbox from '../assets/38686812_8642509.jpg'
 import necband from '../assets/necband.png'
 import PromoCard from '../Componets/PromoCard '
@@ -23,7 +23,8 @@ import Loading from '../Componets/Loading'
 import Aff from '../Componets/Aff'
 import aff from "../assets/afff.png"
 import affpic from '../assets/BULK_AFFILIATE_PROGRAM[2].png' 
-
+import { CartContext } from '../Context/CartContext'
+import Product from './Product'
 
 
 
@@ -34,6 +35,10 @@ const Home = () => {
   const[issubCatogry ,setIssubCatogry] = useState([])
   const [isBannerData, setIsBannerData] = useState([]);
   const [iscount, setIscount] = useState(0);
+  
+  const {addtocart,cart} = useContext(CartContext)
+
+
 
    useEffect(() => {
     const interval = setInterval(() => {
@@ -66,6 +71,12 @@ const Home = () => {
 
 
   },[])
+
+  
+  const handlecart=(Product)=>{
+
+    addtocart(Product)
+  }
 
 
 
@@ -308,12 +319,12 @@ const Home = () => {
 
     <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-20 mt-5 place-items-center">
     
-        <TrendingBox  img={Earphone} />
-        <TrendingBox  img={pendrive} />
-        <TrendingBox  img={temperimg} />
-        <TrendingBox  img={watchphoto} />
-        <TrendingBox  img={Earphone} />
-        <TrendingBox  img={pendrive} />
+        <TrendingBox  img={Earphone}  onAddToCart={handlecart}  id={1}/>
+        <TrendingBox  img={pendrive} onAddToCart={handlecart} id={2} />
+        <TrendingBox  img={temperimg} onAddToCart={handlecart} id={3} />
+        <TrendingBox  img={watchphoto} onAddToCart={handlecart} id={4} />
+        <TrendingBox  img={Earphone}  onAddToCart={handlecart}  id={5} />
+        <TrendingBox  img={pendrive}  onAddToCart={handlecart}  id={6} />
    
       
     </div>

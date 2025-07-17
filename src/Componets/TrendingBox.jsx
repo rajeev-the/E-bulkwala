@@ -4,7 +4,7 @@ import { Bounce } from 'react-toastify'
 import { toast } from 'react-toastify'
 import { Link ,useNavigate } from 'react-router-dom'
 
-const TrendingBox = ({img}) => {
+const TrendingBox = ({img , onAddToCart , id}) => {
 
 
   const navigate = useNavigate()
@@ -18,6 +18,11 @@ const TrendingBox = ({img}) => {
 
   const handleclick =(e)=>{
   e.stopPropagation();
+
+    if (onAddToCart) {
+      onAddToCart(id);
+    }
+
 toast.success('Added to cart!', {
 position: "top-center",
 autoClose: 1200,
