@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 
 
-const ProductListCard  = ({img}) => {
+const ProductListCard  = ({img , handleclick,id}) => {
   return (
      <Link to={'/products'}  className="bg-white rounded-xl p-4 transition-all duration-300  shadow-xl cursor-pointer max-w-[360px]">
       <div className="flex gap-4">
@@ -42,7 +42,7 @@ const ProductListCard  = ({img}) => {
           </div>
 
           {/* CTA Button */}
-          <button className="w-full bg-[#112430] text-white py-2 rounded-lg hover:bg-opacity-90 transition-colors">
+          <button  onClick={()=>handleclick(id)} className="w-full bg-[#112430] text-white py-2 rounded-lg hover:bg-opacity-90 transition-colors">
             Add to Cart
           </button>
         </div>

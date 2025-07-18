@@ -40,6 +40,7 @@ const Home = () => {
 
 
 
+
    useEffect(() => {
     const interval = setInterval(() => {
       setIscount((prevIndex) =>

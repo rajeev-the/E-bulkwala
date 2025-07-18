@@ -1,9 +1,14 @@
-import React,{useState} from 'react'
+import React,{useState ,useContext} from 'react'
 import CartItem from '../Componets/CartItem ';
 import watchphoto from '../assets/watchphoto.png'
+import { CartContext } from '../Context/CartContext';
 
 const Cart = () => {
-   const [items, setItems] = useState([
+
+  const {cart} = useContext(CartContext)
+  console.log(cart)
+
+   const data1 =[
     {
       id: 1,
       name: "Noise Icon '2.1' Display with Bluetooth Calling",
@@ -36,7 +41,12 @@ const Cart = () => {
       image: watchphoto,
        rating: 4.5
     }
-  ]);
+  ]
+
+
+
+  const filterdata = data1.filter((p)=>cart.includes(p.id))
+ 
 
   const removeItem = (itemId) => {
     setItems(items.filter(item => item.id !== itemId));
@@ -49,7 +59,8 @@ const Cart = () => {
     ));
   };
 
-  const subtotal = items.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+  // const subtotal = items.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+  const subtotal = 20
   const postage = 24.00;
   const total = subtotal + postage;
 
@@ -61,7 +72,7 @@ const Cart = () => {
         {/* Cart Items */}
         <div className="flex-1">
           <div className="flex-1">
-          {items.map((item) => (
+          {filterdata?.map((item) => (
             <CartItem
               key={item.id}
               item={item}

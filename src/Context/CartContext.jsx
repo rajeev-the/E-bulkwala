@@ -19,7 +19,14 @@ export const CartProvider = ({ children }) => {
   }, [cart]);
 
   const addtocart = (productId) => {
-    setCart((prevcart) => [...prevcart, productId]);
+    if(!cart.includes(productId)){
+       setCart((prevcart) => [...prevcart, productId]);
+    }
+  
+       
+
+  
+   
   };
 
   const clear = () => {

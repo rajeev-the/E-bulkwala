@@ -1,11 +1,17 @@
-import React, { useState , useEffect } from 'react'
+import React, { useState , useEffect ,useContext } from 'react'
 import ProductListCard from "../Componets/ProductListCard "
 import watchphoto from "../assets/watchphoto.png"
 import axios from 'axios'
 import Loading from '../Componets/Loading'
-import { data } from 'react-router-dom'
+import { CartContext } from '../Context/CartContext'
 
 const ProductPage = () => {
+
+   const {addtocart} = useContext(CartContext)
+
+const  handleclick = (id)=>{
+    addtocart(id)
+}
 
   const[issubCatogry,setIssubCatogry] = useState([])
     const [isLoading, setIsLoading] = useState(true);
@@ -35,7 +41,6 @@ const ProductPage = () => {
   },[])
 
 
- console.log(issubCatogry)
     
   
   
@@ -136,6 +141,8 @@ const ProductPage = () => {
       <ProductListCard
         key={i}
         img={watchphoto}
+        handleclick ={handleclick}
+        id={1}
         className="border-2 border-red-100 hover:shadow-red-100"
       />
     ))}
