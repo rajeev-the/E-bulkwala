@@ -47,7 +47,7 @@ const Product = () => {
       </div>
 
    
-       <PricingTiers/>
+    
    
     </div>
 

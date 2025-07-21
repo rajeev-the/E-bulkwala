@@ -16,6 +16,7 @@ const  handleclick = (id)=>{
   const[issubCatogry,setIssubCatogry] = useState([])
     const [isLoading, setIsLoading] = useState(true);
     const[value,setValue] = useState(0)
+
      const [isCatogrydata, setIsCatogrydata] = useState([]);
     useEffect(()=>{
     const fetchCategoryData = async () => {
@@ -100,7 +101,7 @@ const  handleclick = (id)=>{
   onChange={(e) => {
     const selectedId = e.target.value;
     setValue(selectedId)
-    console.log(selectedId)
+  
 
     const selectedCategory = isCatogrydata.find(cat => cat._id === selectedId);
     if (selectedCategory) {
