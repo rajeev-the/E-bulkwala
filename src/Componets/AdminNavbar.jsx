@@ -20,6 +20,11 @@ const AdminNavbar = () => {
             Order
           </Link>
         </li>
+         <li>
+          <Link to="/admin/gendata" className="hover:text-yellow-300 transition">
+            GenData
+          </Link>
+        </li>
       </ul>
     </nav>
   )

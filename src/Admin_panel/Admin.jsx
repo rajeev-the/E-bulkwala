@@ -94,7 +94,7 @@ const Admin = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post("http://localhost:3000/product/create", formData);
+      await axios.post("http://localhost:8080/api/prodcuts/created", formData);
       alert("Product Created!");
       setFormData({
         heading: "",

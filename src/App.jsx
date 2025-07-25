@@ -14,6 +14,8 @@ import ProductPage from './Pages/ProductPage';
 import Admin from './Admin_panel/Admin';
 import Update from  './Admin_panel/Update'
 import OrderAdmin from './Admin_panel/Order';
+import { CartProvider } from './Context/CartContext.jsx'
+import Generaldata from './Admin_panel/Generaldata.jsx';
 
 
 const App = () => {
@@ -37,7 +39,7 @@ transition={Bounce}
   <ScrollToTop />
 
   <Routes>
-    <Route path='/' element={<Layout />}>
+    <Route path='/' element={ <CartProvider> <Layout />  </CartProvider>}>
       <Route index element={<Home />} /> {/* Default route for '/' */}
       <Route path='product' element={<Product />} />
          <Route path='products' element={<ProductPage />} />
@@ -51,6 +53,8 @@ transition={Bounce}
      <Route index element={<Admin/>} />
      <Route index path='update' element={<Update/>} />
           <Route index path='order' element={<OrderAdmin/>} />
+           <Route index path='gendata' element={<Generaldata/>} />
+
 
     </Route>
     

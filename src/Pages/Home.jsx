@@ -167,7 +167,7 @@ const Home = () => {
   }}
 >
   {/* Gold accent bar */}
-  <div className="absolute top-0 left-0 h-1 w-full bg-gradient-to-r from-amber-400 to-amber-600"></div>
+  <div className="absolute top-0 left-0 h-1 w-full bg-[#112430]"></div>
 
   {/* Image container with classic frame */}
   <div className="relative mx-auto mb-6 w-32 h-32 rounded-full flex items-center justify-center bg-white border-8 border-amber-50 shadow-md">
@@ -193,19 +193,13 @@ const Home = () => {
   <div className="space-y-3">
     {/* Sample Price */}
     <div className="flex justify-between items-center px-2">
-      <span className="text-xs font-medium text-gray-500 uppercase tracking-wider">Sample</span>
-      <span className="text-sm font-medium text-gray-700 bg-gray-100 px-3 py-1 rounded">
+      <span className="text-xs font-medium text-gray-500 uppercase tracking-wider">Price</span>
+      <span className="text-sm font-medium text-gray-700 bg-[#C9E0EF] px-3 py-1 rounded">
         ₹{category?.sample_price}
       </span>
     </div>
 
-    {/* Bulk Price */}
-    <div className="flex justify-between items-center px-2">
-      <span className="text-xs font-medium text-gray-500 uppercase tracking-wider">Bulk</span>
-      <span className="text-sm font-semibold text-amber-700 bg-amber-100 px-3 py-1 rounded border border-amber-200">
-        ₹{category?.price}
-      </span>
-    </div>
+    
   </div>
 
   {/* Classic badge */}
