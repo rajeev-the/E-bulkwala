@@ -5,11 +5,14 @@ import Footer from './Componets/Footer'
 
 
 const Layout = () => {
+
+  const [login, setLogin] = React.useState(false);
+
   return (
     <>
     
     <div className=" h-full w-full  ">
-     <Navbar/>
+     <Navbar setLogin={setLogin}/>
       <div style={  {
         fontFamily: "'Reddit Mono', monospace",
       }} 

@@ -107,7 +107,7 @@ const Home = () => {
             setIsBannerData(isCatogrydata[i].banner);
             setIscount(0); // Reset the banner index when category changes
           }}
-          className={`h-30 w-30 flex-shrink-0 cursor-pointer rounded-xl shadow-xl border-3 border-[#C9E0EF] transition-all`}
+          className={`h-30 w-30 flex-shrink-0 cursor-pointer rounded-xl shadow-xl border-4 border-[#C9E0EF] transition-all`}
         >
           <img
             src={val?.img_url || 'https://via.placeholder.com/150'}
@@ -123,7 +123,7 @@ const Home = () => {
         {/* Underline indicator */}
         <div
           className={`mt-1 h-1.5 w-[90%] rounded-full transition-all duration-300 ${
-            activeIndex === i ? "bg-[#C9E0EF]" : "bg-transparent"
+            activeIndex === i ? "bg-[#112430]" : "bg-transparent"
           }`}
         />
       </div>
