@@ -2,9 +2,9 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 
 
-const ProductListCard  = ({img , handleclick,id}) => {
+const ProductListCard  = ({img , handleclick,id ,title ,price}) => {
   return (
-     <Link to={'/products'}  className="bg-white rounded-xl p-4 transition-all duration-300  shadow-xl cursor-pointer max-w-[360px]">
+     <Link to={'/products'}  className="bg-white rounded-xl p-4 transition-all duration-300  shadow-xl cursor-pointer max-w-[460px]">
       <div className="flex gap-4">
         {/* Image Section */}
         <div className="relative flex-[40%]">
@@ -31,12 +31,12 @@ const ProductListCard  = ({img , handleclick,id}) => {
           </div>
 
           {/* Product Title */}
-          <h3 className="font-bold text-[#112430]">OnePlus Buds 3 With Upto 49dB ANC</h3>
+          <h3 className="font-bold text-[#112430]">{title ? title?.slice(0,50) :" Noise Icon 2 1.8'' Display with Bluetooth Calling, Women'"}</h3>
 
           {/* Pricing Section */}
           <div className="space-y-1">
             <div className="flex items-center gap-2">
-              <span className="text-lg font-bold text-[#112430]">₹5,499</span>
+              <span className="text-lg font-bold text-[#112430]">{price}</span>
               <span className="text-gray-500 line-through">₹6,499</span>
             </div>
           </div>

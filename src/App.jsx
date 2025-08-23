@@ -16,6 +16,7 @@ import Update from  './Admin_panel/Update'
 import OrderAdmin from './Admin_panel/Order';
 import { CartProvider } from './Context/CartContext.jsx'
 import Generaldata from './Admin_panel/Generaldata.jsx';
+import ProdcutsSerach from './Pages/ProdcutsSerach.jsx';
 
 
 const App = () => {
@@ -44,8 +45,9 @@ transition={Bounce}
       <Route path='product' element={<Product />} />
          <Route path='products' element={<ProductPage />} />
       <Route path='cart' element={<Cart />} />
-      <Route path='products-list' element={<ProductsList />} />
+      <Route path='products-list/:id/:subcat' element={<ProductsList />} />
         <Route path='order' element={<Order />} />
+          <Route path='search/:tag' element={<ProdcutsSerach/>} />
     </Route>
 
 

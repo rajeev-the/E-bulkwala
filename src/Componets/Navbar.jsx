@@ -2,12 +2,24 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { RiSearch2Line } from "react-icons/ri";
 import { MdOutlineKeyboardVoice } from "react-icons/md";
+import { useNavigate } from "react-router-dom";
+import logo from "../assets/WhatsApp Image 2025-08-23 at 15.20.56_5693906c.jpg"
 
 const Navbar = () => {
   const productList = ["Sports", "Mobile Cover", "UV Glass", "Tab Tempered", "Mobile Parts", "Fashion", "Beauty",];
   const [menuOpen, setMenuOpen] = useState(false);
   const [getValue, setGetValue] = useState("");
+  const navigate = useNavigate();
   const [suggestions, setSuggestions] = useState([]);
+  
+  const toSlug = (text) => {
+  return text
+    .toLowerCase()
+    .trim()
+    .replace(/[^a-z0-9\s-]/g, '')   // Remove special chars
+    .replace(/\s+/g, '-')           // Replace spaces with -
+    .replace(/-+/g, '-');           // Remove multiple hyphens
+};
 
   const handleChange = (e) => {
     const input = e.target.value;
@@ -34,7 +46,8 @@ const Navbar = () => {
       <div className="w-full bg-white px-5 py-3 md:py-4 lg:px-[80px]">
         <div className="flex justify-between items-center w-full">
           {/* Logo */}
-          <div className="text-2xl font-bold">BULKWALA</div>
+          <img src={logo} className="w-[120px] h-[40px] " alt="" />
+       
            <div className="hidden md:flex items-center border border-gray-300 gap-4 sm:gap-[150px] rounded-lg p-2 shadow-md w-[35%]">
             <div className="flex items-center gap-2 w-full">
               <RiSearch2Line size={20} />
@@ -115,7 +128,13 @@ const Navbar = () => {
                 <li
                   key={index}
                   className="px-4 py-2 hover:bg-gray-100 cursor-pointer"
-                  onClick={() => handleSelect(item)}
+                  onClick={() => { handleSelect(item)
+                    navigate(`/search/${toSlug(item)}`)
+                    
+                  }
+
+
+                  }
                 >
                   {item}
                 </li>

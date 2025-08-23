@@ -14,7 +14,7 @@ const ProductCard = ({title,src}) => {
         />
       </div>
        <div className=' w-full h-full flex justify-center items-center'>
-        <h2 className='  font-bold text-[16px] leading-[21px]  text-black text-center '>{title? title?.slice(0,20):"Mobile Back Cover" }...  </h2>
+        <h2 className='  font-bold text-[16px] leading-[21px]  text-black text-center '>{title? title?.slice(0,20):"Mobile Back Cover" }..  </h2>
 
        </div>
       {/* Product Title */}

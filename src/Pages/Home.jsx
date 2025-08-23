@@ -25,6 +25,7 @@ import aff from "../assets/afff.png"
 import affpic from '../assets/BULK_AFFILIATE_PROGRAM[2].png' 
 import { CartContext } from '../Context/CartContext'
 import Product from './Product'
+import { Link } from 'react-router-dom'
 
 
 
@@ -159,7 +160,9 @@ const Home = () => {
     </div>
   ) : (
     issubCatogry?.map((category, index) => (
- <div
+ <Link
+
+  to={`/products-list/${category._id}/${category?.name}`}
   key={index}
   className="group relative flex flex-col bg-white rounded-xl p-6 transition-all duration-300 hover:shadow-xl overflow-hidden border border-gray-100"
   style={{
@@ -208,7 +211,7 @@ const Home = () => {
       <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
     </svg>
   </div>
-</div>
+</Link>
 
 
     ))
@@ -312,7 +315,7 @@ const Home = () => {
   <div>
     <h3 className="text-start font-bold text-2xl">Trending Products</h3>
 
-    <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-20 mt-5 place-items-center">
+    <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 sm:gap-20 gap-x-20 gap-y-2 mt-5 place-items-center">
     
         <TrendingBox  img={Earphone}  onAddToCart={handlecart}  id={1}/>
         <TrendingBox  img={pendrive} onAddToCart={handlecart} id={2} />

@@ -4,6 +4,7 @@ import watchphoto from "../assets/watchphoto.png"
 import axios from 'axios'
 import Loading from '../Componets/Loading'
 import { CartContext } from '../Context/CartContext'
+import {fetchprodcutsid} from "../Service/prodcutsList"
 
 const ProductPage = () => {
 
@@ -13,9 +14,11 @@ const  handleclick = (id)=>{
     addtocart(id)
 }
 
+  const [valueprodcuts, setvalueprodcuts] = useState([])
   const[issubCatogry,setIssubCatogry] = useState([])
     const [isLoading, setIsLoading] = useState(true);
     const[value,setValue] = useState(0)
+    const[selectedId, setSelectedId] = useState(null);
 
      const [isCatogrydata, setIsCatogrydata] = useState([]);
     useEffect(()=>{
@@ -40,9 +43,36 @@ const  handleclick = (id)=>{
 
 
   },[])
+  
+
+  const handleprodcuts = async (id) => {
+    setValue(id)
+    try {
+      const response = await fetchprodcutsid(id);
+      console.log(response.data);
+      const data = response.data;
+      setvalueprodcuts(data);
+    } catch (error) {
+      console.error('Error fetching products:', error);
+      setvalueprodcuts([]);
+    } finally {
+      setIsLoading(false);
+    }
+  }
 
 
-    
+   useEffect(() => {
+  const fetchInitialProducts = async () => {
+    if (issubCatogry.length > 0) {
+      const firstSubCategoryId = issubCatogry[0]._id;
+      setSelectedId(firstSubCategoryId);
+      await handleprodcuts(firstSubCategoryId);
+    }
+  };
+
+  fetchInitialProducts();
+}, [issubCatogry]);
+
   
   
   return (
@@ -54,7 +84,7 @@ const  handleclick = (id)=>{
       
       {/* Mobile: Horizontal Scroll Categories */}
       <div className="lg:hidden">
-        <div className="flex gap-4 overflow-x-auto pb-3">
+        <div className="flex gap-4 overflow-x-auto pb-1">
           {isLoading ? (
     <div className="w-full flex justify-center items-center py-6 min-h-[100px]">
       <Loading size={32} color="#3b82f6" />
@@ -62,7 +92,16 @@ const  handleclick = (id)=>{
   ) : ( issubCatogry.map((_, i) => (
             <div
               key={i}
-              className="h-24 w-24 flex-shrink-0 rounded-xl border-2 border-[#C9E0EF]  p-2 transition-all "
+                        onClick={() => {
+              handleprodcuts(_._id) 
+              setSelectedId(_._id)
+            } }
+              className={`h-24 w-24 flex-shrink-0 rounded-xl border-2 border-[#C9E0EF]  p-2 transition-all duration-300 ease-in-out cursor-pointer
+                  ${selectedId === _._id
+              ? "border-blue-500 ring-2 ring-blue-300 scale-1.05"
+              : "border-[#C9E0EF]"}
+
+                `}
             >
              <img src={_?.img_url} className='w-full h-full object-contain' alt="" />
             </div>
@@ -74,14 +113,21 @@ const  handleclick = (id)=>{
       <div className="hidden lg:flex lg:w-[12%] max-h-[100vh]     scrollbar-none [&::-webkit-scrollbar]:hidden overflow-y-auto lg:flex-col lg:gap-4 pr-2">
 
           {isLoading ? (
-    <div className="w-full flex justify-center items-center py-6 min-h-[100px]">
+    <div className="w-full flex justify-center items-center py-6 min-h-[500px]">
       <Loading size={32} color="#3b82f6" />
     </div>
   ) : ( issubCatogry.map((_, i) => (
           <div
             key={i}
-           className="min-h-[120px]  h-[400px] rounded-xl border-2 border-[#C9E0EF]   shadow-xl p-3 transition-all "
-
+           className={`min-h-[120px] h-[200px] rounded-xl border-2 p-3 shadow-xl transition-all duration-300 ease-in-out cursor-pointer
+            ${selectedId === _._id
+              ? "border-blue-500 ring-2 ring-blue-300 scale-1.05"
+              : "border-[#C9E0EF]"}`}
+          onClick={() => {
+              handleprodcuts(_._id) 
+              setSelectedId(_._id)
+            } 
+          }
           >
             <img src={_?.img_url} className="w-full h-full object-contain" alt="subcatogory" />
 
@@ -138,7 +184,7 @@ const  handleclick = (id)=>{
 
   {/* Product Grid */}
   <div className="grid grid-cols-1 gap-4 p-4 sm:grid-cols-2 md:grid-cols-3">
-    {[...Array(8)].map((_, i) => (
+    {valueprodcuts.map((_, i) => (
       <ProductListCard
         key={i}
         img={watchphoto}
